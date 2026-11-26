@@ -31,7 +31,7 @@ Pertanyaan turunan:
 - Power BI Desktop
 
 # Data Cleaning (R)
-Script: Data Cleaning.R
+Script: [Data Cleaning.R](Scripts/Data%20Cleaning.R)
 
 Ringkasan pemeriksaan
 | Pemeriksaan | Hasil | Tindakan |
