@@ -31,3 +31,17 @@ Pertanyaan turunan:
 - Power BI Desktop
 
 # Data Cleaning (R)
+Script: Data Cleaning.R
+
+Ringkasan pemeriksaan
+| Pemeriksaan | Hasil | Tindakan |
+|---|---|---|
+| Duplikat (baris penuh dan EmployeeNumber) | 0 | Tidak ada |
+| Missing value dan baris kosong | 0 | Tidak ada |
+| String kosong pada kolom teks | 0 | Tidak ada |
+| Inkonsistensi kategori | Tidak ditemukan | Tidak ada |
+| Rentang kode skala (1-4 / 1-5) | Sesuai | Tidak ada |
+| Nilai numerik | Rentang wajar, tidak ada nilai negatif | Tidak ada |
+| Kolom konstan | EmployeeCount, Over18, StandardHours hanya punya satu nilai unik | Dihapus (35 jadi 32 kolom) |
+
+# EDA
