@@ -45,3 +45,11 @@ Ringkasan pemeriksaan
 | Kolom konstan | EmployeeCount, Over18, StandardHours hanya punya satu nilai unik | Dihapus (35 jadi 32 kolom) |
 
 # EDA
+
+Temuan EDA
+| Faktor | Temuan |
+| --- | --- |
+| Over Time | Attrition 30,5% pada karyawan (Over time) lembur vs 10,4% yang tidak |
+| Job Role | |
+| Business travel | |
+| Marital Status | |
