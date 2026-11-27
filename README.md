@@ -86,3 +86,16 @@ Temuan utama
 | Years with Current Manager | 3 | 2 |
 | Distance from Home | 7 | 9 |
 | Number Companies Worked | 2 | 1 |
+
+3. Correlation Analysis
+
+Analisis korelasi Pearson dilakukan untuk mengeksplorasi hubungan linear antarvariabel numerik
+
+| Kelompok | Pasangan variabel | r (Pearson) | Kekuatan |
+| --- | --- | --- | --- |
+| Jabatan, pendapatan, dan pengalaman | JobLevel - MonthlyIncome | 0,95 | Sangat kuat |
+| Jabatan, pendapatan, dan pengalaman | JobLevel - TotalWorkingYears | 0,78 | Kuat |
+| Jabatan, pendapatan, dan pengalaman | MonthlyIncome - TotalWorkingYears | 0,77 | Kuat |
+| Masa kerja | YearsAtCompany - YearsWithCurrManager | 0,77 | Kuat |
+| Masa kerja | YearsAtCompany - YearsInCurrentRole | 0,76 | Kuat |
+| Masa kerja | YearsInCurrentRole - YearsWithCurrManager | 0,71 | Kuat |
