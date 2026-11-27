@@ -45,11 +45,44 @@ Ringkasan pemeriksaan
 | Kolom konstan | EmployeeCount, Over18, StandardHours hanya punya satu nilai unik | Dihapus (35 jadi 32 kolom) |
 
 # EDA
+Exploratory Data Analysis (EDA) dilakukan untuk memahami karakteristik karyawan dan mengeksplorasi pola yang berkaitan dengan employee attrition
 
-Temuan EDA
-| Faktor | Temuan |
+Script:
+
+1. Categorical Variables
+
+Analisis dilakukan dengan membandingkan proporsi karyawan yang resign (Yes) dan bertahan (No) berdasarkan kategori masing-masing variabel.
+
+Temuan Utama
+| Variabel | Temuan |
 | --- | --- |
 | Over Time | Attrition 30,5% pada karyawan (Over time) lembur vs 10,4% yang tidak |
-| Job Role | |
-| Business travel | |
-| Marital Status | |
+| Departement | Sales memiliki attrition rate tertinggi (20,6%), diikuti Human Resources (19,0%) dan Research & Development (13,8%)  |
+| Job Role | Sales Representative memiliki attrition rate tertinggi (39,8%), sedangkan Research Director memiliki attrition rate terendah (2,5%) |
+| Business travel | Karyawan yang melakukan perjalanan bisnis Frequently memiliki attrition rate 24,9%, dibandingkan Travel Rarely (15,0%) dan Non-Travel (8,0%) |
+| Marital Status | Karyawan Single memiliki attrition rate tertinggi (25,5%), dibandingkan Married (12,5%) dan Divorced (10,1%)|
+| Gender | Attrition rate pada laki-laki (17,0%) sedikit lebih tinggi dibandingkan perempuan (14,8%) |
+| Job Satisfaction | Karyawan dengan job satisfaction rendah memiliki attrition rate tertinggi (22,8%), sedangkan kategori Very High memiliki attrition rate 11,3% |
+| Work Life Balance | Karyawan dengan work-life balance Bad memiliki attrition rate tertinggi (31,2%) |
+| Job Involvement | Karyawan dengan job involvement rendah memiliki attrition rate 33,7%, sedangkan kategori Very High sebesar 9,0% |
+| Relationship Satisfaction | Karyawan dengan relationship satisfaction rendah memiliki attrition rate 20,7%, lebih tinggi dibandingkan kategori lainnya (14,8-15,5%) |
+| Environment Satisfaction | Karyawan dengan environment satisfaction rendah memiliki attrition rate tertinggi (25,4%), dibandingkan kategori Very High (13,5%) |
+
+
+2. Numerical Variables
+
+Perbandingan karakteristik numerik berdasarkan kelompok Attrition menggunakan median.
+
+Temuan utama
+
+| Variabel | No | Yes |
+| --- | --- | --- |
+| Age | 36 | 32 |
+| Monthly Income | 5204 | 3202 |
+| Total Working Years | 10 | 7 |
+| Years at Company | 6 | 3 |
+| Years in Current Role | 3 | 2 |
+| Years since Last Promotion | 1 | 1 |
+| Years with Current Manager | 3 | 2 |
+| Distance from Home | 7 | 9 |
+| Number Companies Worked | 2 | 1 |
