@@ -165,7 +165,7 @@ Sebanyak 237 dari 1.470 karyawan (16,1%) meninggalkan perusahaan, atau sekitar 1
 
 **4. Apakah karyawan yang resign memiliki karakteristik yang berbeda dari yang bertahan?**
 
-Karyawan yang resign cenderung berusia lebih muda dan berada pada tahap karier yang lebih awal, dengan monthly income yang lebih rendah, total working years yang lebih sedikit, serta years at company, years in current role, dan years with current manager yang lebih singkat. Mereka juga cenderung tinggal lebih jauh dari kantor (distance from home), meskipun perbedaannya lebih lemah. Sementara itu, years since last promotion dan number companies worked tidak terbukti berbeda. Secara keseluruhan, perbedaan yang ditemukan tergolong kecil, sehingga tidak cukup untuk menentukan secara sendiri siapa yang akan resign.
+Karyawan yang resign cenderung berusia lebih muda dan berada pada tahap karier yang lebih awal, dengan monthly income yang lebih rendah, total working years yang lebih sedikit, serta years at company, years in current role, dan years with current manager yang lebih singkat. Mereka juga cenderung tinggal lebih jauh dari kantor (distance from home), meskipun perbedaannya kecil. Sementara itu, years since last promotion dan number companies worked tidak terbukti berbeda. 
 
 **5. Tindakan apa yang dapat diprioritaskan HR berdasarkan temuan tersebut?**
 
