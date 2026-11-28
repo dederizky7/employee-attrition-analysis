@@ -9,7 +9,7 @@ Tim HR menemukan bahwa sejumlah karyawan meninggalkan perusahaan (*employee attr
 - Gangguan terhadap produktivitas dan operasional tim.
 - Beban kerja tambahan bagi karyawan yang masih bertahan.
 
-Proyek ini bertujuan mengidentifikasi kelompok karyawan dengan risiko resign tertinggi agar tim HR dapat mengambil tindakan yang tepat sasaran
+Proyek ini bertujuan mengidentifikasi kelompok karyawan dengan risiko resign tertinggi agar tim HR dapat mengambil tindakan yang tepat sasaran.
 
 # Pertanyaan Bisnis
 Pertanyaan utama: Karyawan seperti apa yang paling berisiko meninggalkan perusahaan, dan apa yang dapat dilakukan HR untuk menekannya?
@@ -22,9 +22,9 @@ Pertanyaan turunan:
 - Apakah karyawan yang resign memiliki karakteristik yang berbeda dari yang bertahan?
 - Tindakan apa yang dapat diprioritaskan HR berdasarkan temuan tersebut?
 # Dataset
-- Sumber: IBM HR Analytics Employee Attrition & Performance (Kaggle)
-- Jumlah data: 1470 baris, 35 kolom
-- Variabel utama: Attrition, OverTime, Department, Job Role, Job Satisfaction, Job Involvement, Environment Satisfaction, Work-Life Balance, Business Travel, Marital Status, Gender, Monthly Income, dan Age
+- Sumber: [IBM HR Analytics Employee Attrition & Performance (Kaggle)](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset)
+- Jumlah data: 1470 baris, 35 kolom.
+- Variabel utama: Attrition, OverTime, Department, Job Role, Job Satisfaction, Job Involvement, Environment Satisfaction, Work-Life Balance, Business Travel, Marital Status, Gender, Monthly Income, dan Age.
 
 # Tools
 - RStudio
@@ -34,7 +34,7 @@ Pertanyaan turunan:
 # Data Cleaning (R)
 Script: [Data Cleaning.R](Scripts/Data%20Cleaning.R)
 
-Ringkasan pemeriksaan
+Ringkasan pemeriksaan :
 | Pemeriksaan | Hasil | Tindakan |
 |---|---|---|
 | Duplikat (baris penuh dan EmployeeNumber) | 0 | Tidak ada |
@@ -46,7 +46,7 @@ Ringkasan pemeriksaan
 | Kolom konstan | EmployeeCount, Over18, StandardHours hanya punya satu nilai unik | Dihapus (35 jadi 32 kolom) |
 
 # EDA
-Exploratory Data Analysis (EDA) dilakukan untuk memahami karakteristik karyawan dan mengeksplorasi pola yang berkaitan dengan employee attrition
+Exploratory Data Analysis (EDA) dilakukan untuk memahami karakteristik karyawan dan mengeksplorasi pola yang berkaitan dengan employee attrition.
 
 Script: [EDA.R](Scripts/EDA.R) 
 
@@ -54,7 +54,7 @@ Script: [EDA.R](Scripts/EDA.R)
 
 Analisis dilakukan dengan membandingkan proporsi karyawan yang resign (Yes) dan bertahan (No) berdasarkan kategori masing-masing variabel.
 
-Temuan Utama
+Temuan Utama :
 | Variabel | Temuan |
 | --- | --- |
 | Over Time | Attrition 30,5% pada karyawan (Over time) lembur vs 10,4% yang tidak |
@@ -75,8 +75,7 @@ Temuan Utama
 
 Perbandingan karakteristik numerik berdasarkan kelompok Attrition menggunakan median.
 
-Temuan utama
-
+Temuan utama: 
 | Variabel | No | Yes |
 | --- | --- | --- |
 | Age | 36 | 32 |
@@ -93,7 +92,7 @@ Temuan utama
 
 3. Correlation Analysis
 
-Analisis korelasi Pearson dilakukan untuk mengeksplorasi hubungan linear antarvariabel numerik
+Analisis korelasi Pearson dilakukan untuk mengeksplorasi hubungan linear antarvariabel numerik.
 
 | Kelompok | Pasangan variabel | r (Pearson) | Kekuatan |
 | --- | --- | --- | --- |
@@ -104,12 +103,15 @@ Analisis korelasi Pearson dilakukan untuk mengeksplorasi hubungan linear antarva
 | Masa kerja | YearsAtCompany - YearsInCurrentRole | 0,76 | Kuat |
 | Masa kerja | YearsInCurrentRole - YearsWithCurrManager | 0,71 | Kuat |
 
-**Ringkasan:** Korelasi menunjukkan adanya keterkaitan yang kuat antara level jabatan, pendapatan, dan pengalaman kerja, serta antara berbagai indikator masa kerja
+**Ringkasan:** Korelasi menunjukkan adanya keterkaitan yang kuat antara level jabatan, pendapatan, dan pengalaman kerja, serta antara berbagai indikator masa kerja.
 
 # Statistical Inference
 
-Untuk memeriksa apakah perbedaan proporsi resign antar kategori pada tabel categorical variables bukan terjadi hanya karena kebetulan (variasi acak), dilakukan uji chi-square antara setiap variabel dan Attrition. Cramér's V digunakan untuk melihat kekuatan hubungan antar variabel.
+Exploratory Data Analysis (EDA) menunjukkan adanya perbedaan antara karyawan yang resign dan yang bertahan. Statistik inferensi digunakan untuk menilai apakah perbedaan tersebut mencerminkan suatu efek dan pola, atau masih berada dalam batas variasi acak, yaitu selisih yang dapat muncul meskipun karakteristik yang dibandingkan tidak berkaitan dengan attrition.
 
+**1. Chi-Square Test of Independence**
+
+Uji ini digunakan untuk memeriksa hubungan antara setiap variabel kategorikal dan Attrition. Cramér's V menunjukkan kekuatan hubungan, dari 0 (tidak ada hubungan) hingga 1 (hubungan sempurna).
 
 | Variabel | χ² (Pearson) | df | p-value | Cramér's V | Hasil |
 |:---|---:|---:|---:|---:|:---|
@@ -123,6 +125,9 @@ Untuk memeriksa apakah perbedaan proporsi resign antar kategori pada tabel categ
 | Department | 10,80 | 2 | 0,005 | 0,086 | Signifikan |
 | Gender | 1,27 | 1 | 0,259 | 0,029 | Tidak signifikan |
 
+**Ringkasan:** Dari sembilan variabel kategorikal yang diuji, delapan menunjukkan hubungan yang signifikan dengan Attrition. OverTime memiliki hubungan paling kuat (Cramér's V = 0,246), diikuti Job Role (0,242) dan Marital Status (0,177). Sementara itu, Gender tidak menunjukkan hubungan yang signifikan dengan Attrition (p = 0,259).
+
+**2. Independent Samples t-Test (Welch)**
 Independent Samples t-Test (Welch) digunakan untuk membandingkan rata-rata variabel numerik antara karyawan yang bertahan (n = 1.233) dan yang resign (n = 237), dengan tingkat signifikansi 5%. Ukuran efek diukur menggunakan Cohen's d.
 
 | Variabel | No, Mean (SE) | Yes, Mean (SE) | t | df | p-value | Cohen's d | Hasil |
@@ -136,6 +141,8 @@ Independent Samples t-Test (Welch) digunakan untuk membandingkan rata-rata varia
 | Years with Current Manager | 4,37 (0,10) | 2,85 (0,20) | 6,63 | 365,10 | < 0,001 | 0,43 | Signifikan |
 | Distance from Home | 8,92 (0,22) | 10,63 (0,54) | -2,89 | 322,72 | 0,004 | -0,21 | Signifikan |
 | Number Companies Worked | 2,65 (0,07) | 2,94 (0,17) | -1,57 | 317,14 | 0,116 | -0,12 | Tidak signifikan |
+
+**Ringkasan:** Perbedaan yang terbukti terutama berkaitan dengan usia, pendapatan, pengalaman, dan masa kerja. Hal ini menguatkan indikasi bahwa attrition lebih banyak terjadi pada tahap awal karier.
 
 # Kesimpulan dan Rekomendasi
 
@@ -175,5 +182,20 @@ Karyawan yang resign cenderung berusia lebih muda dan berada pada tahap karier y
 - Setiap variabel diuji secara terpisah tanpa mengendalikan variabel lain.
 - Dataset bersifat fiktif, sehingga temuan merupakan simulasi studi kasus.
 
+# Dashboard Power BI
 
+Dashboard dibuat dengan Power BI Desktop untuk memantau profil karyawan dan attrition. Dashboard terdiri dari tiga halaman dan bersifat deskriptif (menampilkan jumlah dan proporsi). Pengujian statistik ada pada bagian Statistical Inference. File dashboard: [HR_Analytics_Dashboard.pbix](Dashboard/HR_Analytics_Dashboard.pbix) (dibuka dengan Power BI Desktop).
+
+### Halaman 1: Employee Overview
+![Employee Overview](Images/Employee%20Overview.png)
+
+Ringkasan kondisi karyawan: total karyawan (1.470), total attrition (237), dan attrition rate (16,1%), serta distribusi karyawan berdasarkan attrition, department, usia, job role, dan gender. Halaman ini menjawab pertanyaan bisnis 1.
+
+### Halaman 2: Attrition by Employee Characteristics
+![Attrition by Employee Characteristics](Images/Attrition%20by%20Employee%20Characteristics.png)
+
+Attrition rate berdasarkan overtime, environment satisfaction, marital status, job involvement, job satisfaction, dan gender. Setiap batang menunjukkan proporsi karyawan yang bertahan (No) dan resign (Yes) dalam kategori tersebut. Misalnya, attrition rate pada karyawan yang lembur mencapai 30,5%, dibandingkan 10,4% pada yang tidak lembur.
+
+### Halaman 3: Attrition by Work Characteristics
+![Attrition by Work Characteristics](Images/Attrition%20by%20Work%20Characteristics.png)
 
