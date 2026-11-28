@@ -48,7 +48,7 @@ Ringkasan pemeriksaan
 # EDA
 Exploratory Data Analysis (EDA) dilakukan untuk memahami karakteristik karyawan dan mengeksplorasi pola yang berkaitan dengan employee attrition
 
-Script:
+Script: [EDA.R](Scripts/EDA.R) 
 
 1. Categorical Variables
 
