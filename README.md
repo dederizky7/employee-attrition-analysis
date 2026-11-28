@@ -27,7 +27,8 @@ Pertanyaan turunan:
 - Variabel utama: Attrition, OverTime, Department, Job Role, Job Satisfaction, Job Involvement, Environment Satisfaction, Work-Life Balance, Business Travel, Marital Status, Gender, Monthly Income, dan Age
 
 # Tools
-- R: dplyr, tidyr, stringr, naniar, skimr, stringdist, ggplot2
+- RStudio
+- IBM Statistic SPSS
 - Power BI Desktop
 
 # Data Cleaning (R)
@@ -99,3 +100,52 @@ Analisis korelasi Pearson dilakukan untuk mengeksplorasi hubungan linear antarva
 | Masa kerja | YearsAtCompany - YearsWithCurrManager | 0,77 | Kuat |
 | Masa kerja | YearsAtCompany - YearsInCurrentRole | 0,76 | Kuat |
 | Masa kerja | YearsInCurrentRole - YearsWithCurrManager | 0,71 | Kuat |
+
+# Statistical Inference
+
+Untuk memeriksa apakah perbedaan proporsi resign antar kategori pada tabel categorical variables bukan terjadi hanya karena kebetulan (variasi acak), dilakukan uji chi-square antara setiap variabel dan Attrition. Cramér's V digunakan untuk melihat kekuatan hubungan antar variabel.
+
+
+| Variabel | χ² (Pearson) | df | p-value | Cramér's V | Hasil |
+|:---|---:|---:|---:|---:|:---|
+| Over Time | 89,04 | 1 | < 0,001 | 0,246 | Signifikan |
+| Job Role | 86,19 | 8 | < 0,001 | 0,242 | Signifikan |
+| Marital Status | 46,16 | 2 | < 0,001 | 0,177 | Signifikan |
+| Job Involvement | 28,49 | 3 | < 0,001 | 0,139 | Signifikan |
+| Business Travel | 24,18 | 2 | < 0,001 | 0,128 | Signifikan |
+| Environment Satisfaction | 22,50 | 3 | < 0,001 | 0,124 | Signifikan |
+| Job Satisfaction | 17,51 | 3 | 0,001 | 0,109 | Signifikan |
+| Department | 10,80 | 2 | 0,005 | 0,086 | Signifikan |
+| Gender | 1,27 | 1 | 0,259 | 0,029 | Tidak signifikan |
+
+# Kesimpulan dan Rekomendasi
+
+**1. Seberapa besar tingkat attrition di perusahaan saat ini?**
+
+Sebanyak 237 dari 1.470 karyawan (16,1%) meninggalkan perusahaan, atau sekitar 1 dari 6 karyawan.
+
+**2. Kelompok karyawan mana yang paling banyak resign?**
+
+- **Job Role:** attrition rate tertinggi ada pada Sales Representative (39,8%), diikuti Laboratory Technician (23,9%) dan Human Resources (23,1%).
+- **Department:** attrition rate sales (20,6%) dan human resources (19,0%) lebih tinggi daripada research & development (13,8%). Namun perbedaannya relatif kecil sehingga sasaran lebih tepat ditentukan berdasarkan Job Role.
+- **Profil karyawan:** attrition rate lebih tinggi pada karyawan dengan over time atau lembur, marital status single, dan sering melakukan perjalanan bisnis (business travel frequently). Gender tidak terbukti berkaitan dengan attrition.
+
+**3. Faktor apa dalam kondisi dan lingkungan kerja yang berkaitan dengan keputusan resign?**
+
+- **Over Time** merupakan faktor yang paling menonjol: 30,5% pada karyawan yang lembur, dibandingkan 10,4% pada yang tidak.
+- **Job Involvement, Environment Satisfaction, dan Job Satisfaction:** kategori terendah memiliki attrition rate lebih tinggi daripada kategori tertinggi, masing-masing 33,7% vs 9,0%, 25,4% vs 13,5%, dan 22,8% vs 11,3%.
+- **Business Travel:** 24,9% pada Travel Frequently, dibandingkan 8,0% pada Non-Travel.
+- **Work-Life Balance dan Relationship Satisfaction:** kategori Work-Life Balance Bad (31,2%) dan Relationship Satisfaction rendah (20,7%) juga menunjukkan attrition rate lebih tinggi.
+
+**4. Apakah karyawan yang resign memiliki karakteristik yang berbeda dari yang bertahan?**
+
+Secara umum, karyawan yang resign cenderung berusia lebih muda dan berada pada tahap karier yang lebih awal, dengan monthly income yang lebih rendah, total working Years yang lebih sedikit, dan years at company yang lebih singkat dibandingkan karyawan yang bertahan. Mereka juga cenderung tinggal lebih jauh dari kantor.
+
+
+| Prioritas | Insight | Rekomendasi | Indikator keberhasilan |
+|:---:|:---|:---|:---|
+| 1 | Lembur memiliki hubungan terkuat dengan attrition dan dapat dikelola perusahaan | Telusuri unit dan penyebab lembur, lalu evaluasi pembagian beban kerja dan kebutuhan tenaga | Jam lembur dan attrition karyawan lembur |
+| 2 | Risiko sangat terkonsentrasi pada Sales Representative | Tinjau target, kompensasi, dukungan atasan, dan jalur karier peran tersebut | Attrition Sales Representative |
+| 3 | Karyawan yang keluar cenderung masih di awal karier | Perkuat orientasi, mentoring, dan kejelasan jenjang karier; tinjau daya saing gaji tingkat awal | Attrition pada masa kerja awal |
+| 4 | Keterlibatan dan kepuasan rendah disertai attrition lebih tinggi | Lakukan survei berkala dan tindak lanjuti masalah yang ditemukan | Skor keterlibatan dan kepuasan |
+| 5 | Perjalanan dinas yang sering berkaitan dengan attrition lebih tinggi | Evaluasi frekuensi dan pemerataan penugasan perjalanan | Attrition pada kelompok Travel Frequently |
